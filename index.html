@@ -41,9 +41,17 @@
                         return "You lose! Rock beats scissors"
                     }
                 }
-                else {
-                    return "That's not a valid element."
+            }
+
+            function askPlayer() {
+                let input = prompt("What's your choice?");
+                input = input.toLowerCase();
+                while (input != 'rock' || input != 'paper' || input != 'scissors') {
+                    console.log("That's not a valid element to choose. Enter your choice again.");
+                    input = prompt("What's your choice? (again ._.)");
+                    input = input.toLowerCase();
                 }
+                return input;
             }
 
             function game() {
@@ -52,8 +60,8 @@
                 let computerWins = 0;
 //the number of rounds is 5                
                 while (i <= 5) {
-//the playerSelection is entered by the player with prompt and for the computerSelection, the function computerPlay() is called                     
-                    let playerSelection = prompt("What's your choice?");
+//for the playerSelection the function askPlayer is called and for the computerSelection, the function computerPlay() is called                     
+                    let playerSelection = askPlayer();
                     let computerSelection = computerPlay();
 //here there is a call to the function that plays just one round and assigns it to a new variable called result                    
                     let result = playRound(playerSelection, computerSelection);
