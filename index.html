@@ -6,13 +6,14 @@
     </head>
     <body>
         <script>
+            
             function computerPlay() {
                 const selection = ['rock', 'paper', 'scissors'];
                 return selection[Math.floor(Math.random() * selection.length)];
             }
+
 //what this function returns is useless in the way this function is used, what this function returns is useful to play just one round
-            function playRound(player, computer) {
-                let playerSelection = player.toLowerCase();
+            function playRound(playerSelection, computerSelection) {
                 if (playerSelection === computerSelection) {
                     return "It's a tie";
 
@@ -61,9 +62,11 @@
                 let computerWins = 0;
 //the number of rounds is 5                
                 while (i <= 5) {
+
 //for the playerSelection, the function askPlayer is called and for the computerSelection, the function computerPlay() is called                     
                     let playerSelection = askPlayer();
                     let computerSelection = computerPlay();
+
 //here there is a call to the function that plays just one round and assigns it to a new variable called result                    
                     let result = playRound(playerSelection, computerSelection);
 //if variable result includes that word, a special phrase is displayed                    
@@ -95,7 +98,7 @@
                     console.log(`You lose the game: ${computerWins}-${playerWins}`)
                 }                    
             }
-
+            // call to the function
             game()
         </script>
     </body>
